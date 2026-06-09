@@ -1,0 +1,10 @@
+import streamlit as st
+import google.generativeai as genai
+genai.configure(api_key="AQQ")
+model=genai.GenerativeModel("gemini-2.5-flash")
+st.title("AI code Explainer")
+a="Your are a code explainer. Explain the given code in the simpler way and easy to understand."
+prompt=st.text_input("Enter the code:")
+if st.button("Explain"):
+    response=model.generate_content(a+prompt)
+    st.write(response.text)                             CODE EXPLAINER
