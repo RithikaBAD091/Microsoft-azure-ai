@@ -1,0 +1,9 @@
+import streamlit as st
+import google.generativeai as genai
+genai.configure(api_key="**********************************************************")
+model=genai.GenerativeModel("gemini-2.5-flash")
+st.title("AI Blog Post Generator")
+promt=st.text_input("Enter a topic for the blog post:")
+if(st.button("Generate Blog Post")):
+    response=model.generate_content(promt)
+    st.write(response.text)                                              BLOG
